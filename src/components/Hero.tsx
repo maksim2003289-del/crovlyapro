@@ -26,7 +26,7 @@ const Hero = () => {
           <Button asChild size="lg" className="bg-warm hover:bg-warm/90 text-warm-foreground font-bold text-base px-8 py-6 rounded-lg shadow-lg">
             <a href="#contact">Рассчитать стоимость</a>
           </Button>
-          <Button asChild variant="outline" size="lg" className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8 py-6 rounded-lg">
+          <Button asChild variant="outline" size="lg" className="border-warm text-warm bg-warm/10 hover:bg-warm/20 font-semibold text-base px-8 py-6 rounded-lg">
             <a href="#services">Наши услуги</a>
           </Button>
         </div>
