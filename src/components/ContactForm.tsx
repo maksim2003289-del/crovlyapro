@@ -17,7 +17,7 @@ const ContactForm = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-8 text-dark-surface-foreground">
           <a href="tel:+79132560338" className="flex items-center gap-3 hover:text-warm transition-colors">
             <Phone className="w-5 h-5 text-warm" />
-            <span className="font-medium">+7 (913) 256-03-38</span>
+            <span className="font-medium">+7 (913) 256-03-38 (WhatsApp / Telegram)</span>
           </a>
           <a href="https://wa.me/79619805504" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 hover:text-warm transition-colors">
             <MessageCircle className="w-5 h-5 text-warm" />
