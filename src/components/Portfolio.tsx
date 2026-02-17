@@ -4,24 +4,24 @@ import portfolio3 from "@/assets/portfolio-3.jpg";
 
 const projects = [
   {
-    title: "Коттедж в Подмосковье",
-    type: "Металлочерепица",
-    area: "280 м²",
-    duration: "5 дней",
+    title: "Дом в п. Садовый",
+    type: "Профнастил",
+    area: "180 м²",
+    duration: "4 дня",
     image: portfolio1,
   },
   {
-    title: "Загородный дом",
-    type: "Мягкая кровля",
-    area: "350 м²",
-    duration: "7 дней",
+    title: "Коттедж в Белокурихе",
+    type: "Металлочерепица",
+    area: "320 м²",
+    duration: "6 дней",
     image: portfolio2,
   },
   {
-    title: "Таунхаус",
-    type: "Фальцевая кровля",
-    area: "190 м²",
-    duration: "4 дня",
+    title: "Усадьба в Барнауле",
+    type: "Мягкая кровля",
+    area: "250 м²",
+    duration: "5 дней",
     image: portfolio3,
   },
 ];
