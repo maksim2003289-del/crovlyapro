@@ -19,7 +19,7 @@ const Hero = () => {
           <span className="text-warm">наша забота!</span>
         </h1>
         <p className="max-w-2xl mx-auto text-dark-surface-foreground text-base md:text-lg mb-10 animate-fade-in-up [animation-delay:0.3s]">
-          Профессиональный монтаж и ремонт кровли любой сложности.
+          Строительные и кровельные работы любой сложности в Алтайском крае.
           Бесплатный выезд замерщика. Расчёт стоимости за 15 минут.
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up [animation-delay:0.45s]">
