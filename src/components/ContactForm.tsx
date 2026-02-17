@@ -34,15 +34,19 @@ const ContactForm = () => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 text-dark-surface-foreground">
                 <Phone className="w-5 h-5 text-warm" />
-                <span className="font-medium">8 (800) 123-45-67</span>
+                <a href="tel:+79132560338" className="font-medium hover:text-warm transition-colors">+7 (913) 256-03-38</a>
+              </div>
+              <div className="flex items-center gap-3 text-dark-surface-foreground">
+                <Phone className="w-5 h-5 text-warm" />
+                <a href="https://wa.me/79619805504" target="_blank" rel="noopener noreferrer" className="font-medium hover:text-warm transition-colors">+7 (961) 980-55-04 (WhatsApp / Telegram)</a>
               </div>
               <div className="flex items-center gap-3 text-dark-surface-foreground">
                 <Mail className="w-5 h-5 text-warm" />
-                <span className="font-medium">info@krovlyapro.ru</span>
+                <a href="mailto:vitor.vinokur@yandex.ru" className="font-medium hover:text-warm transition-colors">vitor.vinokur@yandex.ru</a>
               </div>
               <div className="flex items-center gap-3 text-dark-surface-foreground">
                 <MapPin className="w-5 h-5 text-warm" />
-                <span className="font-medium">Москва, ул. Строителей, 15</span>
+                <span className="font-medium">п. Садовый, ул. Полевая 14/1, Алтайский край</span>
               </div>
             </div>
           </div>

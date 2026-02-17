@@ -16,7 +16,7 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-dark-surface/95 backdrop-blur-md border-b border-dark-surface">
       <div className="container-narrow flex items-center justify-between h-16 md:h-20 px-4">
         <a href="#hero" className="text-xl md:text-2xl font-extrabold text-primary-foreground tracking-tight">
-          КРОВЛЯ<span className="text-warm">ПРО</span>
+          КРОВЛЯ<span className="text-warm">ПРО</span> <span className="text-xs text-dark-surface-foreground font-normal ml-2 hidden lg:inline">Алтайский край</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
@@ -32,11 +32,11 @@ const Header = () => {
         </nav>
 
         <a
-          href="tel:+78001234567"
+          href="tel:+79132560338"
           className="hidden md:flex items-center gap-2 text-sm font-semibold text-warm"
         >
           <Phone className="w-4 h-4" />
-          8 (800) 123-45-67
+          +7 (913) 256-03-38
         </a>
 
         <button
@@ -61,9 +61,9 @@ const Header = () => {
                 {l.label}
               </a>
             ))}
-            <a href="tel:+78001234567" className="flex items-center gap-2 text-sm font-semibold text-warm">
+            <a href="tel:+79132560338" className="flex items-center gap-2 text-sm font-semibold text-warm">
               <Phone className="w-4 h-4" />
-              8 (800) 123-45-67
+              +7 (913) 256-03-38
             </a>
           </nav>
         </div>
