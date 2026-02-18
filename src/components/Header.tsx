@@ -31,13 +31,16 @@ const Header = () => {
           ))}
         </nav>
 
-        <a
-          href="tel:+79132560338"
-          className="hidden md:flex items-center gap-2 text-sm font-semibold text-warm"
-        >
-          <Phone className="w-4 h-4" />
-          +7 (913) 256-03-38
-        </a>
+        <div className="hidden md:flex flex-col items-end text-sm font-semibold text-warm">
+          <a href="tel:+79132560338" className="flex items-center gap-2">
+            <Phone className="w-4 h-4" />
+            +7 (913) 256-03-38
+          </a>
+          <a href="tel:+79619805504" className="flex items-center gap-2">
+            <Phone className="w-4 h-4" />
+            +7 (961) 980-55-04
+          </a>
+        </div>
 
         <button
           className="md:hidden text-dark-surface-foreground"
