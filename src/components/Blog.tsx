@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { CalendarDays, ArrowLeft } from "lucide-react";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const posts = [
   {
@@ -75,6 +74,8 @@ const posts = [
 ];
 
 const Blog = () => {
+  const [activePost, setActivePost] = useState<number | null>(null);
+
   return (
     <section id="blog" className="section-padding bg-muted/30">
       <div className="container-narrow">
@@ -87,83 +88,85 @@ const Blog = () => {
           </h2>
         </div>
 
-        <Tabs defaultValue="list" className="w-full">
-          <TabsList className="w-full justify-start mb-6 bg-transparent gap-2 h-auto flex-wrap">
-            <TabsTrigger
-              value="list"
-              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full px-5 py-2 text-sm"
-            >
-              Все статьи
-            </TabsTrigger>
-            {posts.map((post, i) => (
-              <TabsTrigger
-                key={i}
-                value={`post-${i}`}
-                className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground rounded-full px-5 py-2 text-sm"
-              >
-                {post.tag}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-
-          <TabsContent value="list">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {posts.map((post, i) => (
-                <TabsTrigger
-                  key={i}
-                  value={`post-${i}`}
-                  className="all-unset cursor-pointer"
-                  asChild
-                >
-                  <article className="group rounded-xl bg-card border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300 text-left">
-                    <div className="p-6 flex flex-col h-full">
-                      <span className="self-start text-xs font-semibold uppercase tracking-wider text-warm bg-warm/10 px-3 py-1 rounded-full mb-4">
-                        {post.tag}
-                      </span>
-                      <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {post.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
-                        {post.excerpt}
-                      </p>
-                      <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                        <CalendarDays className="w-3.5 h-3.5" />
-                        <span>{post.date}</span>
-                      </div>
-                    </div>
-                  </article>
-                </TabsTrigger>
-              ))}
-            </div>
-          </TabsContent>
-
+        {/* Tag filters */}
+        <div className="flex flex-wrap gap-2 mb-6">
+          <button
+            onClick={() => setActivePost(null)}
+            className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+              activePost === null
+                ? "bg-primary text-primary-foreground"
+                : "bg-muted text-muted-foreground hover:bg-muted/80"
+            }`}
+          >
+            Все статьи
+          </button>
           {posts.map((post, i) => (
-            <TabsContent key={i} value={`post-${i}`}>
-              <div className="rounded-xl bg-card border border-border p-6 md:p-10">
-                <TabsTrigger
-                  value="list"
-                  className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6 p-0 h-auto bg-transparent"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Назад к статьям
-                </TabsTrigger>
-                <span className="inline-block text-xs font-semibold uppercase tracking-wider text-warm bg-warm/10 px-3 py-1 rounded-full mb-4 ml-4">
-                  {post.tag}
-                </span>
-                <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
-                  {post.title}
-                </h3>
-                <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6">
-                  <CalendarDays className="w-3.5 h-3.5" />
-                  <span>{post.date}</span>
-                </div>
-                <div className="prose prose-sm max-w-none text-muted-foreground leading-relaxed whitespace-pre-line">
-                  {post.content}
-                </div>
-              </div>
-            </TabsContent>
+            <button
+              key={i}
+              onClick={() => setActivePost(i)}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-colors ${
+                activePost === i
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-muted text-muted-foreground hover:bg-muted/80"
+              }`}
+            >
+              {post.tag}
+            </button>
           ))}
-        </Tabs>
+        </div>
+
+        {/* Cards list */}
+        {activePost === null ? (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {posts.map((post, i) => (
+              <article
+                key={i}
+                onClick={() => setActivePost(i)}
+                className="group rounded-xl bg-card border border-border overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer"
+              >
+                <div className="p-6 flex flex-col h-full">
+                  <span className="self-start text-xs font-semibold uppercase tracking-wider text-warm bg-warm/10 px-3 py-1 rounded-full mb-4">
+                    {post.tag}
+                  </span>
+                  <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-4 flex-1">
+                    {post.excerpt}
+                  </p>
+                  <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                    <CalendarDays className="w-3.5 h-3.5" />
+                    <span>{post.date}</span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        ) : (
+          /* Full article */
+          <div className="rounded-xl bg-card border border-border p-6 md:p-10">
+            <button
+              onClick={() => setActivePost(null)}
+              className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              Назад к статьям
+            </button>
+            <span className="inline-block text-xs font-semibold uppercase tracking-wider text-warm bg-warm/10 px-3 py-1 rounded-full mb-4 ml-4">
+              {posts[activePost].tag}
+            </span>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              {posts[activePost].title}
+            </h3>
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-6">
+              <CalendarDays className="w-3.5 h-3.5" />
+              <span>{posts[activePost].date}</span>
+            </div>
+            <div className="prose prose-sm max-w-none text-muted-foreground leading-relaxed whitespace-pre-line">
+              {posts[activePost].content}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
