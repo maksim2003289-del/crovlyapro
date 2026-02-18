@@ -10,7 +10,7 @@ const contacts = [
   },
   {
     icon: MessageCircle,
-    label: "Мессенджеры",
+    label: "Второй телефон",
     value: "+7 (961) 980-55-04",
     subtext: "WhatsApp / Telegram",
     href: "https://wa.me/79619805504",
